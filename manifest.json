@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Crunchyroll Local Subtitles",
+  "version": "1.0.0",
+  "description": "Show local SRT subtitles over Crunchyroll episodes.",
+  "minimum_chrome_version": "122",
+  "permissions": ["storage", "activeTab"],
+  "action": {
+    "default_title": "Local subtitles",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "matches": ["https://www.crunchyroll.com/watch/*", "https://crunchyroll.com/watch/*"],
+    "js": ["srt.js", "content.js"],
+    "run_at": "document_idle"
+  }],
+  "web_accessible_resources": [{
+    "resources": ["Series/*/*.srt", "series-catalog.json"],
+    "matches": ["https://www.crunchyroll.com/*", "https://crunchyroll.com/*"]
+  }]
+}

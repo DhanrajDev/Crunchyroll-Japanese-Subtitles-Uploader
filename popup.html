@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Local subtitles</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <strong>Local subtitles</strong>
+        <small>Crunchyroll</small>
+      </div>
+      <label class="switch" aria-label="Enable local subtitles">
+        <input id="enabled" type="checkbox">
+        <span></span>
+      </label>
+    </header>
+
+    <div id="status" class="status" role="status">Checking page…</div>
+    <div id="library" class="library"></div>
+
+    <section class="sync">
+      <div class="section-title">Sync <small>+ shows subtitles later</small></div>
+      <div class="sync-controls">
+        <button id="minus" type="button" aria-label="Show subtitles 0.5 seconds earlier">−</button>
+        <label class="offset-field" aria-label="Sync offset in seconds">
+          <input id="offset" type="text" inputmode="decimal" value="+0.0" autocomplete="off" spellcheck="false" aria-label="Sync offset in seconds">
+          <span>s</span>
+        </label>
+        <button id="plus" type="button" aria-label="Show subtitles 0.5 seconds later">+</button>
+        <button id="resetOffset" class="text-button" type="button">Reset</button>
+      </div>
+      <small id="syncHint" class="sync-hint" hidden></small>
+    </section>
+
+    <details id="settingsPanel">
+      <summary>Appearance settings</summary>
+      <div class="settings">
+        <label class="slider-row">Text size <output id="sizeValue"></output>
+          <input id="size" type="range" min="18" max="60" step="1">
+        </label>
+        <div class="pair">
+          <label>Text color <input id="textColor" type="color"></label>
+          <label>Opacity <input id="textOpacity" type="range" min="0" max="100" step="5"></label>
+        </div>
+        <div class="pair">
+          <label>Background <input id="backgroundColor" type="color"></label>
+          <label>Opacity <input id="backgroundOpacity" type="range" min="0" max="100" step="5"></label>
+        </div>
+        <label class="slider-row">Vertical position <output id="verticalPositionValue"></output>
+          <input id="verticalPosition" type="range" min="0" max="35" step="1">
+        </label>
+        <button id="resetAppearance" class="text-button" type="button">Restore defaults</button>
+      </div>
+    </details>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

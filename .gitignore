@@ -1,0 +1,11 @@
+# Generated packages and signing material
+*.zip
+*.crx
+*.pem
+*.key
+
+# Local OS and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
